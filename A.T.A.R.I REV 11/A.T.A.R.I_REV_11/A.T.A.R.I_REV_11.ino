@@ -30,8 +30,9 @@ long duration;
 int distance;
 int safetyDistance;
 
-int period = 3000; // Delay in milliseconds for screen
-unsigned long time_now = 0;
+int period = 300; // Delay in milliseconds for screen
+int safe = 300;
+unsigned long time_now = 5000;
 
 void setup() {
 
@@ -83,18 +84,35 @@ pinMode(PWM_B, OUTPUT); //Speed PWM Motor
   
 void loop() {
 
+// Failsafe when robot disconnects
 // Time declaration for screen to prevent strobing
-  
+
  lcd.clear();
- if(millis() > time_now + period){
-        time_now = millis();
-        lcd.noBacklight(); 
-    }
  
+ if(millis() > time_now + safe + period){
+        time_now = millis();
+        
+        digitalWrite(MA1, LOW);
+        digitalWrite(MA2, LOW);
+        analogWrite(PWM_A, 0);
+        digitalWrite(MB1, LOW);
+        digitalWrite(MB2, LOW);
+        analogWrite(PWM_B, 0); 
+        lcd.noBacklight();
+/*
+ if(millis() > time_now + period){
+        time_now = millis();        
+        lcd.noBacklight();
+    }
+    
+ /*
 if(millis() > time_now + period){
         time_now = millis();
  
  lcd.noBacklight();
+}
+*/
+
 }
 if (Serial.available() > 0) {
   lcd.clear(); 

@@ -95,15 +95,15 @@ void loop(){
       break;
     case 'L':  //Moving the Car Left
       digitalWrite(Motor1_Pin1, HIGH);
-      digitalWrite(Motor1_Pin2, HIGH);
+      digitalWrite(Motor1_Pin2, LOW);
       digitalWrite(Motor2_Pin1, LOW);
-      digitalWrite(Motor2_Pin2, LOW);
+      digitalWrite(Motor2_Pin2, HIGH);
       break;
     case 'R':   //Moving the Car Right
       digitalWrite(Motor1_Pin1, LOW);
-      digitalWrite(Motor1_Pin2, LOW);  
+      digitalWrite(Motor1_Pin2, HIGH);  
       digitalWrite(Motor2_Pin1, HIGH);
-      digitalWrite(Motor2_Pin2, HIGH);
+      digitalWrite(Motor2_Pin2, LOW);
       break;
     case 'S':   //Stop
       digitalWrite(Motor2_Pin2, LOW);

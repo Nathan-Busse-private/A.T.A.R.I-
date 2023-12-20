@@ -114,9 +114,9 @@ void loop(){
 
     case 'I':  //Moving the Car Forward right
       digitalWrite(Motor2_Pin1, LOW);
-      digitalWrite(Motor2_Pin2, HIGH);
+      digitalWrite(Motor2_Pin2, LOW);
       digitalWrite(Motor1_Pin1, LOW);
-      digitalWrite(Motor1_Pin2, LOW);
+      digitalWrite(Motor1_Pin2, HIGH);
       break; 
     case 'J':  //Moving the Car backward right
       digitalWrite(Motor1_Pin1, LOW);
@@ -126,9 +126,9 @@ void loop(){
       break;        
     case 'G':  //Moving the Car Forward left
       digitalWrite(Motor2_Pin1, LOW);
-      digitalWrite(Motor2_Pin2, LOW);
+      digitalWrite(Motor2_Pin2, HIGH);
       digitalWrite(Motor1_Pin1, LOW);
-      digitalWrite(Motor1_Pin2, HIGH);
+      digitalWrite(Motor1_Pin2, LOW);
       break; 
     case 'H':  //Moving the Car backward left
       digitalWrite(Motor2_Pin1, LOW);
